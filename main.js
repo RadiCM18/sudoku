@@ -43,8 +43,8 @@ let selectedRegionCol = null;
 
 canvas.addEventListener('click', e => {
   const rect = canvas.getBoundingClientRect();
-  const mouseX = e.clientX - rect.left;
-  const mouseY = e.clientY - rect.top;
+  const mouseX = e.clientX - rect.left - 3;
+  const mouseY = e.clientY - rect.top - 3;
 
   // selected cell
   selectedCol = Math.floor(mouseX / getCellSize());
@@ -76,21 +76,32 @@ const drawSelectedCell = cellSize => {
           Math.floor(col / 3) === selectedRegionCol);
 
       if (isSelectedSquare) {
-        ctx.fillStyle = 'rgba(0, 0, 0, .1)';
+        ctx.fillStyle = 'rgba(104, 81, 169, .1)';
         ctx.fillRect(col * cellSize, row * cellSize, cellSize, cellSize);
       }
 
+      ctx.fillStyle = 'rgba(230, 138, 155, .4)';
+
       // draw the highlighted square if it is selected or if the number matches
       if (number !== '' && number === selectedNumber) {
-        ctx.fillStyle = '#bbdefb';
         ctx.fillRect(col * cellSize, row * cellSize, cellSize, cellSize);
       }
     }
   }
+  if (selectedCol && selectedRow && selectedNumber === '') {
+    ctx.fillRect(
+      selectedCol * cellSize,
+      selectedRow * cellSize,
+      cellSize,
+      cellSize
+    );
+  }
 };
 
 const drawGrid = (cellSize, canvasSize) => {
-  ctx.strokeStyle = 'lightgray';
+  const groupSize = 3 * cellSize;
+
+  ctx.strokeStyle = 'rgba(184, 71, 165, .5)';
   ctx.lineWidth = 1;
   ctx.beginPath();
 
@@ -106,11 +117,11 @@ const drawGrid = (cellSize, canvasSize) => {
   ctx.stroke();
 
   // draw thicker lines for the subregions
-  ctx.strokeStyle = 'black';
-  ctx.lineWidth = 2;
+  ctx.strokeStyle = '#b847a5';
+  ctx.lineWidth = 3;
   ctx.beginPath();
 
-  for (let i = 0; i <= canvas.width; i += 3 * cellSize) {
+  for (let i = groupSize; i <= canvas.width - groupSize; i += groupSize) {
     ctx.moveTo(i, 0);
     ctx.lineTo(i, canvas.height);
     ctx.moveTo(0, i);
@@ -130,7 +141,8 @@ const drawNumber = cellSize => {
 
       // draw the number
       ctx.font = '36px sans-serif'; // size and font family
-      ctx.fillStyle = 'black'; // black color
+      ctx.fillStyle = '#3f2e65'; // black color
+      // ctx.fillStyle = '#c05b6e'; // orange color
       ctx.textAlign = 'center'; // center alignment
       ctx.textBaseline = 'middle'; // vertical center alignment
       ctx.fillText(number.toString(), xPos, yPos);

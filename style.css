@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
 * {
   margin: 0;
   padding: 0;
@@ -6,12 +8,82 @@
 body {
   width: 100vw;
   height: 100vh;
+  font-family: 'Poppins';
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-canvas {
-  max-width: 90vw;
-  border: 1px solid black;
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.countdown {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin: 10px 0;
+}
+
+.countdown i {
+  font-size: 1.5rem;
+}
+
+.countdown p {
+  font-size: 1.3rem;
+}
+
+.board {
+  max-width: 95vw;
+  /* border: 1px solid black; */
+}
+
+.tools {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  list-style: none;
+  margin: 50px 0;
+}
+
+.tools i {
+  font-size: 1.8rem;
+}
+
+.tools p {
+  font-size: 0.7rem;
+}
+
+.tools button {
+  width: 70px;
+  padding: 15px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.keyboard {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.column {
+  width: 100%;
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.number {
+  width: 50px;
+  height: 50px;
+  font-size: 2rem;
 }

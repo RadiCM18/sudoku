@@ -4,11 +4,65 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>SudokuGrid</title>
+    <title>Sudoku</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
     <link rel="stylesheet" href="./style.css" />
   </head>
   <body>
-    <canvas id="sudoku"></canvas>
+    <div class="container">
+      <div class="countdown">
+        <i class="fa-regular fa-clock"></i>
+        <p>00:00</p>
+      </div>
+      <canvas class="board" id="sudoku"></canvas>
+      <ul class="tools">
+        <li>
+          <button>
+            <i class="fa-solid fa-rotate-left"></i>
+            <p>UNDO</p>
+          </button>
+        </li>
+        <li>
+          <button>
+            <i class="fa-solid fa-eraser"></i>
+            <p>ERASE</p>
+          </button>
+        </li>
+        <li>
+          <button>
+            <i class="fa-solid fa-pencil"></i>
+            <p>PENCIL</p>
+          </button>
+        </li>
+        <li>
+          <button>
+            <i class="fa-regular fa-lightbulb"></i>
+            <p>HINT</p>
+          </button>
+        </li>
+      </ul>
+      <div class="keyboard">
+        <ul class="column">
+          <li><button class="number">1</button></li>
+          <li><button class="number">2</button></li>
+          <li><button class="number">3</button></li>
+          <li><button class="number">4</button></li>
+          <li><button class="number">5</button></li>
+        </ul>
+        <ul class="column">
+          <li><button class="number">6</button></li>
+          <li><button class="number">7</button></li>
+          <li><button class="number">8</button></li>
+          <li><button class="number">9</button></li>
+        </ul>
+      </div>
+    </div>
     <script src="./easy.js"></script>
     <script src="./solve.js"></script>
     <script src="./main.js"></script>
